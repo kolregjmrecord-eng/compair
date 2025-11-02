@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jamia Comparison Report 2024–2026</title>
+
+<!-- Urdu Font -->
+<style>
+@font-face {
+  font-family: 'JameelNoori';
+  src: url('JameelNooriRegular.ttf') format('truetype');
+}
+
+body {
+  font-family: 'JameelNoori', serif;
+  font-weight: bold;
+  margin: 0;
+  background: #f8fbff;
+  color: #111;
+  text-align: center;
+}
+
+header {
+  background: linear-gradient(90deg, #004aad, #009688);
+  color: white;
+  padding: 30px 10px 25px;
+  border-bottom: 3px solid #003566;
+}
+
+header img {
+  height: 130px;
+  vertical-align: middle;
+  margin-right: 15px;
+}
+
+header h1 {
+  display: inline-block;
+  font-size: 40px;
+  vertical-align: middle;
+  margin: 5px;
+  letter-spacing: 1px;
+  text-shadow: 0 0 10px rgba(255,255,255,0.4);
+}
+
+header h2 {
+  margin: 10px 0 0;
+  font-size: 45px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-shadow: 0 0 10px rgba(255,255,255,0.6);
+}
+
+button {
+  padding: 10px 18px;
+  background: #004aad;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin: 10px;
+  font-size: 18px;
+}
+button:hover {
+  background: #007bff;
+}
+
+table {
+  margin: 25px auto;
+  border-collapse: collapse;
+  width: 94%;
+  background: white;
+  box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 12px 16px;
+  font-size: 20px;
+  font-weight: bold;
+}
+th {
+  background: #004aad;
+  color: white;
+  letter-spacing: 1px;
+}
+
+tr:nth-child(even) {background: #f2f8ff;}
+
+.increase {color: green; font-weight: bold;}
+.decrease {color: red; font-weight: bold; background: #ffeaea;}
+.same {color: #b36b00; background: #fff5cc;}
+
+.bar-container {
+  background: #ddd;
+  border-radius: 20px;
+  overflow: hidden;
+  height: 20px;
+  width: 100%;
+}
+.bar {
+  height: 100%;
+  text-align: right;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  padding-right: 8px;
+  border-radius: 20px;
+}
+
+.rank {
+  margin-top: 30px;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+@keyframes glow {
+  0% { text-shadow: 0 0 5px #fff, 0 0 10px gold; transform: scale(1);}
+  50% { text-shadow: 0 0 20px gold, 0 0 30px orange; transform: scale(1.05);}
+  100% { text-shadow: 0 0 5px #fff, 0 0 10px gold; transform: scale(1);}
+}
+
+.rank1, .rank2, .rank3 {animation: glow 1.5s infinite; font-weight:bold;}
+.rank1 {color: #008000;}
+.rank2 {color: #0055aa;}
+.rank3 {color: #aa7700;}
+
+footer {
+  margin-top: 45px;
+  font-size: 20px;
+  color: #333;
+  font-weight: bold;
+  padding-bottom: 25px;
+}
+
+footer b {
+  color: #000;
+  font-family: 'JameelNoori', serif;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <img src="logo.png" alt="Logo">
+  <h1>Jamia Comparison Report Annual 2024–25 vs Mid Term 2025–26</h1>
+  <h2>JAMIATUL MADINA KOLKATA REGION</h2>
+</header>
+
+<button onclick="exportPDF()">📄 Download PDF</button>
+
+<table id="comparisonTable">
+  <tr>
+    <th>Jamia</th>
+    <th>Annual 2024–2025</th>
+    <th>Mid-Term 2025–2026</th>
+    <th>Difference</th>
+    <th>Mid-Term % Bar</th>
+  </tr>
+  <tr><td>SILCHAR</td><td>95</td><td>88</td><td class="decrease">-7 🔻</td><td></td></tr>
+  <tr><td>ASANSOLE</td><td>67</td><td>89</td><td class="increase">+22 🔺</td><td></td></tr>
+  <tr><td>MATIABURUZ</td><td>79</td><td>81</td><td class="increase">+2 🔺</td><td></td></tr>
+  <tr><td>KHIDDERPORE</td><td>75</td><td>83</td><td class="increase">+8 🔺</td><td></td></tr>
+  <tr><td>JAMSHEDPUR</td><td>53</td><td>84</td><td class="increase">+31 🔺</td><td></td></tr>
+  <tr><td>RANCHI PUNDAG</td><td>79</td><td>61</td><td class="decrease">-18 🔻</td><td></td></tr>
+  <tr><td>RANCHI ILAHI NAGAR</td><td>78</td><td>79</td><td class="increase">+1 🔺</td><td></td></tr>
+  <tr><td>DHANBAD</td><td>65</td><td>69</td><td class="increase">+4 🔺</td><td></td></tr>
+  <tr><td>SORO</td><td>85</td><td>88</td><td class="increase">+3 🔺</td><td></td></tr>
+  <tr><td>BHADRAK</td><td>–</td><td>44</td><td class="decrease">New 🔻</td><td></td></tr>
+</table>
+
+<div id="rankContainer" class="rank"></div>
+
+<footer>
+  Generated on <span id="date"></span><br>
+  <b>Design & Develop by عبد مصطفی</b>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script>
+function setBars() {
+  const rows = [...document.querySelectorAll("#comparisonTable tr")].slice(1);
+  const data = [];
+  rows.forEach(r => {
+    const jamia = r.cells[0].textContent.trim();
+    const mid = parseFloat(r.cells[2].textContent);
+    const barCell = r.cells[4];
+    if (!isNaN(mid)) {
+      data.push({ jamia, mid });
+      const barWrap = document.createElement("div");
+      barWrap.className = "bar-container";
+      const bar = document.createElement("div");
+      bar.className = "bar";
+      bar.style.width = mid + "%";
+      if (mid >= 80) bar.style.background = "linear-gradient(90deg,#00c853,#4caf50)";
+      else if (mid >= 61) bar.style.background = "linear-gradient(90deg,#2196f3,#007bff)";
+      else bar.style.background = "linear-gradient(90deg,#ffeb3b,#fbc02d)";
+      bar.textContent = mid + "%";
+      barWrap.appendChild(bar);
+      barCell.appendChild(barWrap);
+    }
+  });
+  return data;
+}
+
+function showRanks(data) {
+  data.sort((a, b) => b.mid - a.mid);
+  const grouped = {};
+  data.forEach(item => {
+    if (!grouped[item.mid]) grouped[item.mid] = [];
+    grouped[item.mid].push(item.jamia);
+  });
+
+  const uniqueScores = Object.keys(grouped).map(Number).sort((a, b) => b - a);
+  const ranks = [];
+  uniqueScores.forEach((score, i) => {
+    ranks.push({ rank: i + 1, jamias: grouped[score], mid: score });
+  });
+
+  const rankDiv = document.getElementById("rankContainer");
+  let html = "";
+  ranks.slice(0, 3).forEach(r => {
+    const cls = r.rank === 1 ? "rank1" : r.rank === 2 ? "rank2" : "rank3";
+    html += `<p class="${cls}">🏅 Rank ${r.rank}: ${r.jamias.join(" & ")} (${r.mid}%)</p>`;
+  });
+  rankDiv.innerHTML = html;
+}
+
+function exportPDF() {
+  const element = document.body;
+  const opt = {
+    margin: 0.4,
+    filename: 'Jamia_Comparison_2025.pdf',
+    image: { type: 'jpeg', quality: 0.98 },
+    html2canvas: { scale: 2 },
+    jsPDF: { unit: 'in', format: 'a4', orientation: 'landscape' }
+  };
+  html2pdf().set(opt).from(element).save();
+}
+
+document.getElementById("date").textContent = new Date().toLocaleDateString();
+const allData = setBars();
+showRanks(allData);
+</script>
+</body>
+</html>
