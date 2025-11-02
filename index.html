@@ -234,11 +234,12 @@ function showRanks(data) {
 function exportPDF() {
   const element = document.body;
   const opt = {
-    margin: 0.4,
+    margin: 0,
     filename: 'Jamia_Comparison_2025.pdf',
-    image: { type: 'jpeg', quality: 0.98 },
-    html2canvas: { scale: 2 },
-    jsPDF: { unit: 'in', format: 'a4', orientation: 'landscape' }
+    image: { type: 'jpeg', quality: 1 },
+    html2canvas: { scale: 2, useCORS: true, scrollY: 0, windowWidth: document.body.scrollWidth },
+    jsPDF: { unit: 'px', format: [1920, 1080], orientation: 'landscape' },
+    pagebreak: { mode: ['avoid'] }
   };
   html2pdf().set(opt).from(element).save();
 }
