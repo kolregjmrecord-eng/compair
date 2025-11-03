@@ -5,13 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Jamia Comparison Report 2024–2026</title>
 
-<!-- Urdu Font -->
 <style>
 @font-face {
   font-family: 'JameelNoori';
   src: url('JameelNooriRegular.ttf') format('truetype');
 }
-
 body {
   font-family: 'JameelNoori', serif;
   font-weight: bold;
@@ -20,20 +18,17 @@ body {
   color: #111;
   text-align: center;
 }
-
 header {
   background: linear-gradient(90deg, #004aad, #009688);
   color: white;
   padding: 30px 10px 25px;
   border-bottom: 3px solid #003566;
 }
-
 header img {
   height: 130px;
   vertical-align: middle;
   margin-right: 15px;
 }
-
 header h1 {
   display: inline-block;
   font-size: 40px;
@@ -42,7 +37,6 @@ header h1 {
   letter-spacing: 1px;
   text-shadow: 0 0 10px rgba(255,255,255,0.4);
 }
-
 header h2 {
   margin: 10px 0 0;
   font-size: 45px;
@@ -51,7 +45,6 @@ header h2 {
   letter-spacing: 3px;
   text-shadow: 0 0 10px rgba(255,255,255,0.6);
 }
-
 button {
   padding: 10px 18px;
   background: #004aad;
@@ -63,9 +56,7 @@ button {
   margin: 10px;
   font-size: 18px;
 }
-button:hover {
-  background: #007bff;
-}
+button:hover { background: #007bff; }
 
 table {
   margin: 25px auto;
@@ -76,7 +67,6 @@ table {
   border-radius: 10px;
   overflow: hidden;
 }
-
 th, td {
   border: 1px solid #ddd;
   padding: 12px 16px;
@@ -88,9 +78,7 @@ th {
   color: white;
   letter-spacing: 1px;
 }
-
 tr:nth-child(even) {background: #f2f8ff;}
-
 .increase {color: green; font-weight: bold;}
 .decrease {color: red; font-weight: bold; background: #ffeaea;}
 .same {color: #b36b00; background: #fff5cc;}
@@ -136,7 +124,6 @@ footer {
   font-weight: bold;
   padding-bottom: 25px;
 }
-
 footer b {
   color: #000;
   font-family: 'JameelNoori', serif;
@@ -145,7 +132,6 @@ footer b {
 </head>
 
 <body>
-
 <header>
   <img src="logo.png" alt="Logo">
   <h1>Jamia Comparison Report Annual 2024–25 vs Mid Term 2025–26</h1>
@@ -163,15 +149,15 @@ footer b {
     <th>Mid-Term % Bar</th>
   </tr>
   <tr><td>SILCHAR</td><td>95</td><td>88</td><td class="decrease">-7 🔻</td><td></td></tr>
-  <tr><td>ASANSOLE</td><td>67</td><td>89</td><td class="increase">+23 🔺</td><td></td></tr>
-  <tr><td>MATIABURUZ</td><td>87</td><td>81</td><td class="increase">-6 🔻</td><td></td></tr>
+  <tr><td>ASANSOLE</td><td>67</td><td>89</td><td class="increase">+22 🔺</td><td></td></tr>
+  <tr><td>MATIABURUZ</td><td>87</td><td>81</td><td class="decrease">-6 🔻</td><td></td></tr>
   <tr><td>KHIDDERPORE</td><td>79</td><td>83</td><td class="increase">+4 🔺</td><td></td></tr>
   <tr><td>JAMSHEDPUR</td><td>53</td><td>84</td><td class="increase">+31 🔺</td><td></td></tr>
-  <tr><td>RANCHI PUNDAG</td><td>55</td><td>64</td><td class="decrease">+ۤۤ9 🔺</td><td></td></tr>
+  <tr><td>RANCHI PUNDAG</td><td>55</td><td>64</td><td class="increase">+9 🔺</td><td></td></tr>
   <tr><td>RANCHI ILAHI NAGAR</td><td>78</td><td>79</td><td class="increase">+1 🔺</td><td></td></tr>
-  <tr><td>DHANBAD</td><td>86</td><td>69</td><td class="increase">-17 🔻</td><td></td></tr>
+  <tr><td>DHANBAD</td><td>86</td><td>69</td><td class="decrease">-17 🔻</td><td></td></tr>
   <tr><td>SORO</td><td>64</td><td>88</td><td class="increase">+24 🔺</td><td></td></tr>
-  <tr><td>BHADRAK</td><td>–</td><td>44</td><td class="decrease">New 🔻</td><td></td></tr>
+  <tr><td>BHADRAK</td><td>–</td><td>44</td><td class="increase">New 🔺</td><td></td></tr>
 </table>
 
 <div id="rankContainer" class="rank"></div>
@@ -215,13 +201,11 @@ function showRanks(data) {
     if (!grouped[item.mid]) grouped[item.mid] = [];
     grouped[item.mid].push(item.jamia);
   });
-
   const uniqueScores = Object.keys(grouped).map(Number).sort((a, b) => b - a);
   const ranks = [];
   uniqueScores.forEach((score, i) => {
     ranks.push({ rank: i + 1, jamias: grouped[score], mid: score });
   });
-
   const rankDiv = document.getElementById("rankContainer");
   let html = "";
   ranks.slice(0, 3).forEach(r => {
@@ -250,4 +234,3 @@ showRanks(allData);
 </script>
 </body>
 </html>
-
